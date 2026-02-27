@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museografía con Diseñadores</title>
+    <!-- Vinculando nuestra hoja de estilos (CSS) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Vinculando las fuentes de Google (Outfit para títulos, Inter para texto) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Efectos de luces de fondo (Glow) para el toque "Tokyo" -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Encabezado Principal de la Página -->
+    <header class="hero">
+        <div class="container">
+            <div class="logo">MD.</div>
+            <h1 class="title">Museografía con <span class="highlight">Diseñadores</span></h1>
+            <p class="slogan">Reimaginando la experiencia museográfica a través de la tecnología 4.0</p>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+        <!-- Sección de Introducción -->
+        <section class="intro">
+            <h2>Sobre el Proyecto</h2>
+            <p>Somos un grupo de estudiantes de diseño industrial investigando cómo implementar las tecnologías 4.0 en
+                los museos y en sus experiencias. Este repositorio virtual documenta nuestro proceso de investigación,
+                analizando las decisiones del diseño, la materialidad y cómo estas tecnologías definen la interacción y
+                la transferencia de conocimiento entre el visitante y el objeto cultural o científico.</p>
+        </section>
+
+        <!-- Tarjetas Interactivas de los 2 Museos -->
+        <section class="cards-grid">
+            <!-- Tarjeta 1: Museo de Trajes -->
+            <a href="museo-trajes.html" class="card trajes-card">
+                <div class="card-content">
+                    <div class="card-tag">Investigación I</div>
+                    <h3>Museo de Trajes</h3>
+                    <p>Análisis tipológico y material enfocado en técnicas de confección, ensamblaje, acabados y su
+                        relación entre la forma, la función y el contexto histórico.</p>
+                    <span class="btn">Explorar Proyecto &rarr;</span>
+                </div>
+                <div class="card-bg"></div>
+            </a>
+
+            <!-- Tarjeta 2: Museo del Mar -->
+            <a href="museo-mar.html" class="card mar-card">
+                <div class="card-content">
+                    <div class="card-tag">Investigación II</div>
+                    <h3>Museo del Mar</h3>
+                    <p>Análisis crítico de tecnologías (analógicas e híbridas), su impacto en el rol del usuario experto
+                        y su integración al discurso museográfico-científico.</p>
+                    <span class="btn">Explorar Proyecto &rarr;</span>
+                </div>
+                <div class="card-bg"></div>
+            </a>
+        </section>
+
+        <!-- Sección de Línea de Tiempo (Proceso) -->
+        <section class="timeline-section">
+            <h2 class="timeline-title">Evolución del Proyecto</h2>
+            <div class="timeline">
+                <!-- Hito 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Semana 1-2</div>
+                        <h3>Investigación de Campo</h3>
+                        <p>Visitas al Museo del Mar y Museo de Trajes. Recolección de datos, fotografías y análisis
+                            preliminar de las exhibiciones.</p>
+                    </div>
+                </div>
+
+                <!-- Hito 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Semana 3-4</div>
+                        <h3>Análisis de Diseño Industrial</h3>
+                        <p>Desglose de materialidad, tecnologías involucradas y evaluación de la experiencia del usuario
+                            (tecnología como mediador del conocimiento).</p>
+                    </div>
+                </div>
+
+                <!-- Hito 3 -->
+                <div class="timeline-item focus">
+                    <div class="timeline-dot pulsing"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Actual - Semana 5</div>
+                        <h3>Conceptualización Web & Repositorio</h3>
+                        <p>Diseño de la estructura visual (Tokyo Dark) y levantamiento del repositorio virtual para
+                            documentar los avances de ambos grupos.</p>
+                    </div>
+                </div>
+
+                <!-- Hito 4 -->
+                <div class="timeline-item future">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Próximamente</div>
+                        <h3>Propuesta de Museografía 4.0</h3>
+                        <p>Ideación y prototipado final de las experiencias interactivas y tecnológicas para mejorar la
+                            museografía actual.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

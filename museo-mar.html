@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo del Mar - Investigación</title>
+    <!-- Mismos estilos de la página principal más los específicos -->
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Pequeño ajuste en cascada para sobrescribir acentos magenta por cian en esta vista -->
+    <style>
+        .highlight-cyan {
+            color: var(--accent-cyan);
+        }
+
+        .research-text h3 {
+            color: var(--accent-cyan);
+        }
+
+        .styled-list li::before {
+            background-color: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .research-image-placeholder {
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+
+        .model-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.15);
+        }
+
+        .model-card:hover .cube-wireframe {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+
+        .view-btn {
+            color: var(--accent-cyan);
+        }
+
+        .model-card:hover .view-btn {
+            text-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .modal-content {
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 240, 255, 0.1);
+        }
+
+        .tag-badge {
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--accent-cyan);
+            border-color: rgba(0, 240, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Efectos ambientales específicos para esta sección (Cyan dominante) -->
+    <div class="ambient-glow glow-2"
+        style="background: var(--accent-cyan); opacity: 0.15; top: 0; right: 0; width: 1000px; height: 1000px; left: auto;">
+    </div>
+
+    <!-- Navegación Superior -->
+    <nav class="subpage-nav container">
+        <a href="index.html" class="back-link">&larr; Volver al Inicio</a>
+        <div class="project-indicator">MD. / Mar</div>
+    </nav>
+
+    <!-- Encabezado de la Sección -->
+    <header class="hero subpage-hero">
+        <div class="container">
+            <h1 class="title">Museo del <span class="highlight-cyan">Mar</span></h1>
+            <p class="slogan">Análisis de la tecnología interactiva como mediadora en la experiencia y conocimiento
+                marino.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- SECCIÓN 1: Investigación de Campo -->
+        <section class="research-section">
+            <h2 class="section-title">Investigación de Campo</h2>
+            <div class="research-grid">
+                <div class="research-text">
+                    <h3>Discurso Museográfico y Tecnologías</h3>
+                    <p>En el Museo del Mar de Utadeo evaluamos la integración tecnológica y su impacto en la
+                        experiencia. Desde nuestra perspectiva de Diseño Industrial nos cuestionamos:</p>
+                    <ul class="styled-list">
+                        <li><strong>Definición Tecnológica:</strong> ¿Qué tipo de tecnología actúa? (Analógica, digital,
+                            mecánica, interactiva o invisible).</li>
+                        <li><strong>Relación Tecnología-Conocimiento:</strong> ¿Cómo condiciona el medio la forma en que
+                            entendemos la ciencia y biología marina?</li>
+                        <li><strong>Decisiones de Diseño:</strong> Identificar industrias involucradas (educativa,
+                            museográfica, audiovisual) y la relación ergonomía-interacción.</li>
+                        <li><strong>Experiencia del Usuario:</strong> El rol asignado al visitante (observador pasivo,
+                            explorador activo u operador).</li>
+                    </ul>
+                </div>
+                <!-- Espacio para foto del museo o maqueta interactiva -->
+                <div class="research-image-placeholder">
+                    <div class="placeholder-content">
+                        <span class="icon">🌊</span>
+                        <p>Espacio para fotografía de las exhibiciones o dioramas del museo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Galería de Modelos 3D Biológicos -->
+        <section class="models-section">
+            <h2 class="section-title">Archivo Digital Biológico</h2>
+            <p class="section-desc">Selecciona un espécimen o instalación para ver su análisis tecnológico y
+                museográfico.</p>
+
+            <div class="models-grid">
+                <!-- Tarjeta Especimen 1 -->
+                <div class="model-card" onclick="openModal('mar1')">
+                    <div class="model-thumbnail">
+                        <div class="cube-wireframe"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3>Diorama Arrecife de Coral</h3>
+                        <p>Simulación analógica-visual con iluminación focal.</p>
+                        <span class="view-btn">Inspeccionar Análisis &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Especimen 2 -->
+                <div class="model-card" onclick="openModal('mar2')">
+                    <div class="model-thumbnail">
+                        <div class="cube-wireframe"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3>Esqueleto de Cetáceo</h3>
+                        <p>Montaje osteológico suspendido.</p>
+                        <span class="view-btn">Inspeccionar Análisis &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Especimen 3 -->
+                <div class="model-card" onclick="openModal('mar3')">
+                    <div class="model-thumbnail">
+                        <div class="cube-wireframe"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3>Pantallas Interactivas</h3>
+                        <p>Dispositivos táctiles audiovisuales.</p>
+                        <span class="view-btn">Inspeccionar Análisis &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PESTAÑA DESPLEGABLE / MODAL INTERACTIVO PARA ANÁLISIS DEL MAR -->
+    <div class="modal-overlay" id="modelModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-layout">
+                <!-- Zona Izquierda: El Modelo 3D u Objeto -->
+                <div class="modal-3d-viewer">
+                    <div class="viewer-placeholder">
+                        <p>Cargando visor 3D biológico...</p>
+                        <span class="instruction">(Aquí irá el escaneo o modelo del montaje)</span>
+                    </div>
+                </div>
+                <!-- Zona Derecha: La Información Técnica y Crítica -->
+                <div class="modal-details">
+                    <div class="tag-badge">Ficha Museográfica</div>
+                    <h2 id="modal-title">Nombre del Recurso</h2>
+
+                    <div class="detail-group">
+                        <h4>Definición Tecnológica</h4>
+                        <p id="modal-tech">Tipo de tecnología (analógica, híbrida, etc)...</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <h4>Diseño Ind. & Industrias</h4>
+                        <p id="modal-design">Materialidad, ergonomía e industrias que intervinieron...</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <h4>Relación Conocimiento - Usuario</h4>
+                        <p id="modal-ux">Rol del visitante y transferencia de información...</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <h4>Mirada Crítica (Diseño)</h4>
+                        <p id="modal-critical">Propuesta de mejora o replanteamiento...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos de ejemplo enfocados en las preguntas del Museo del Mar
+        const marData = {
+            'mar1': {
+                title: 'Diorama Arrecife de Coral',
+                tech: 'Tecnología principalmente analógica y escenográfica (materiales compuestos pintados) fusionada con tecnología de iluminación direccional invisible para el visitante.',
+                design: 'Decisiones de escala real (1:1) y materiales de alta resistencia (resinas, fibra de vidrio) para simular texturas biológicas. Industria predominante: museográfica artesanal y luminotécnica.',
+                ux: 'Rol: Observador inmersivo. La iluminación artificial y el encapsulamiento visual dirigen la atención fuertemente, limitando la interacción física pero maximizando la sensorial visual.',
+                critical: 'Si bien es estéticamente inmersivo, es muy estático. Se podría plantear una mejora utilizando Proyección Mapping (tecnología híbrida) sobre las piezas blancas para mostrar los cambios de color de los corales vivos vs el blanqueamiento por el cambio climático.'
+            },
+            'mar2': {
+                title: 'Esqueleto de Cetáceo Suspendido',
+                tech: 'Tecnología osteológica, científica y mecánica estructural. Completamente evidente (cables de tensión, estructuras de soporte).',
+                design: 'Diseño estructural complejo para soportar el peso de las piezas originales sin dañarlas. Interviene directamente la industria científica (preparación biológica) y la ingeniería estructural/mecánica.',
+                ux: 'Rol: Observador a escala humana. Transmite asombro anatómico pero la información científica suele depender de la lectura de paneles adyacentes, lo cual divide la atención.',
+                critical: 'La estructura de soporte podría estar mejor integrada. Se propondría una experiencia de "Realidad Aumentada apuntada (AR)" donde, al ver los huesos a través de un dispositivo, el usuario complete visualmente los órganos internos y músculos del animal.'
+            },
+            'mar3': {
+                title: 'Pantallas Táctiles Interactivas',
+                tech: 'Tecnología 100% digital, interactiva y multimedia. Evidente para el usuario.',
+                design: 'Uso de kioskos metálicos de alto tráfico, interfaces gráficas simples y pantallas capacitivas. Industria: Tecnológica de software y hardware audiovisual industrial.',
+                ux: 'Rol: Operador/Participante activo. El usuario controla el ritmo del conocimiento. Condiciona la experiencia a ser "un usuario por pantalla", limitando la experiencia compartida.',
+                critical: 'Las pantallas táctiles tipo "tablet gigante" suelen desconectar al usuario del objeto real. Replantearíamos kioskos tangibles, donde levantar modelos físicos 3D (como conchas o fósiles impresos) sobre un lector RFID active la infografía digital en la pantalla principal.'
+            }
+        };
+
+        function openModal(idMar) {
+            const modal = document.getElementById('modelModal');
+            const data = marData[idMar];
+
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-tech').innerText = data.tech;
+            document.getElementById('modal-design').innerText = data.design;
+            document.getElementById('modal-ux').innerText = data.ux;
+            document.getElementById('modal-critical').innerText = data.critical;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modelModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('modelModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>

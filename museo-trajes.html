@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museo de Trajes - Investigación</title>
+    <!-- Mismos estilos de la página principal más los específicos -->
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Efectos ambientales específicos para esta sección (Magenta dominante) -->
+    <div class="ambient-glow glow-1"
+        style="background: var(--accent-magenta); opacity: 0.15; top: 0; left: 0; width: 1000px; height: 1000px;"></div>
+
+    <!-- Navegación Superior -->
+    <nav class="subpage-nav container">
+        <a href="index.html" class="back-link">&larr; Volver al Inicio</a>
+        <div class="project-indicator">MD. / Trajes</div>
+    </nav>
+
+    <!-- Encabezado de la Sección -->
+    <header class="hero subpage-hero">
+        <div class="container">
+            <h1 class="title">Museo de <span class="highlight-magenta">Trajes</span></h1>
+            <p class="slogan">Análisis de materialidad, confección y su relación con el contexto histórico.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- SECCIÓN 1: Investigación de Campo -->
+        <section class="research-section">
+            <h2 class="section-title">Investigación de Campo</h2>
+            <div class="research-grid">
+                <div class="research-text">
+                    <h3>Metodología e Inspección</h3>
+                    <p>Durante nuestras visitas al Museo de Trajes, analizamos físicamente varias prendas emblemáticas.
+                        Nuestro enfoque como diseñadores industriales se centra en "desarmar" visualmente la pieza para
+                        entender:</p>
+                    <ul class="styled-list">
+                        <li><strong>Materialidad Visible:</strong> Fibras, texturas y las tecnologías (manuales o
+                            industriales) asociadas a su producción.</li>
+                        <li><strong>Estructura:</strong> Técnicas de confección, ensamblaje de las partes y tipos de
+                            acabados.</li>
+                        <li><strong>Análisis Semántico:</strong> La estrecha relación entre la forma final de la prenda,
+                            su función utilitaria y el contexto histórico-cultural en el que fue creada.</li>
+                    </ul>
+                </div>
+                <!-- Espacio para una foto real de la investigación en el futuro -->
+                <div class="research-image-placeholder">
+                    <div class="placeholder-content">
+                        <span class="icon">📷</span>
+                        <p>Espacio para fotografía de la investigación en el museo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Galería de Modelos 3D -->
+        <section class="models-section">
+            <h2 class="section-title">Archivo Digital 3D</h2>
+            <p class="section-desc">Selecciona un traje escaneado para desplegar su análisis técnico y modelo
+                interactivo.</p>
+
+            <div class="models-grid">
+                <!-- Tarjeta de Traje 1 -->
+                <div class="model-card" onclick="openModal('traje1')">
+                    <div class="model-thumbnail">
+                        <!-- Placeholder del modelo 3D -->
+                        <div class="cube-wireframe"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3>Traje de Campesina</h3>
+                        <p>Región Andina. Tela de algodón rústico.</p>
+                        <span class="view-btn">Inspeccionar Modelo 3D &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Traje 2 -->
+                <div class="model-card" onclick="openModal('traje2')">
+                    <div class="model-thumbnail">
+                        <div class="cube-wireframe"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3>Ruana Tradicional</h3>
+                        <p>Boyacá. Lana de oveja, tejido en telar.</p>
+                        <span class="view-btn">Inspeccionar Modelo 3D &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Traje 3 -->
+                <div class="model-card" onclick="openModal('traje3')">
+                    <div class="model-thumbnail">
+                        <div class="cube-wireframe"></div>
+                    </div>
+                    <div class="model-info">
+                        <h3>Vestido de Palenquera</h3>
+                        <p>Costa Caribe. Colores vibrantes y volantes.</p>
+                        <span class="view-btn">Inspeccionar Modelo 3D &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PESTAÑA DESPLEGABLE / MODAL INTERACTIVO PARA EL 3D -->
+    <div class="modal-overlay" id="modelModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="modal-layout">
+                <!-- Zona Izquierda: El Modelo 3D -->
+                <div class="modal-3d-viewer">
+                    <div class="viewer-placeholder">
+                        <p>Cargando visor 3D interactivo...</p>
+                        <span class="instruction">(Aquí podrán rotar y hacer zoom al traje con el mouse)</span>
+                    </div>
+                </div>
+                <!-- Zona Derecha: La Información Técnica -->
+                <div class="modal-details">
+                    <div class="tag-badge">Ficha Técnica</div>
+                    <h2 id="modal-title">Nombre del Traje</h2>
+
+                    <div class="detail-group">
+                        <h4>Materiales Visibles</h4>
+                        <p id="modal-materials">Descripción de los materiales y tecnología de producción...</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <h4>Técnicas de Confección</h4>
+                        <p id="modal-technique">Detalles sobre ensamblaje y acabados...</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <h4>Forma, Función y Contexto</h4>
+                        <p id="modal-context">Análisis histórico y funcional de la pieza...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script sencillo para abrir y cerrar la pestaña de información -->
+    <script>
+        // Datos de ejemplo para rellenar la pestaña dinámica
+        const trajesData = {
+            'traje1': {
+                title: 'Traje de Campesina Andina',
+                materials: 'Fibras naturales, predominantemente algodón de hilado semi-industrial. Tintes de origen natural y sintéticos tempranos.',
+                technique: 'Ensamblaje mediante costuras planas rectas y sobrehilado manual para evitar deshilachado. Uso de pinzas para ceñir el talle.',
+                context: 'Traje utilitario para la recolección agrícola. La forma de la falda (amplia) permitía movilidad, mientras que los materiales garantizaban transpirabilidad en el clima de montaña media.'
+            },
+            'traje2': {
+                title: 'Ruana Tradicional Boyacense',
+                materials: '100% Lana virgen de oveja. Hilado manual pesado que le otorga sus propiedades térmicas e impermeables.',
+                technique: 'Tejido contínuo en telar de pedal (cuatro lizos). Acabado característico de flecos creados a partir de la misma urdimbre tejida.',
+                context: 'Prenda multifuncional por excelencia. Sirve como abrigo, cobija y rompevientos. Su forma cuadrangular con abertura central optimiza el material del telar sin desperdicios.'
+            },
+            'traje3': {
+                title: 'Vestido de Palenquera (Caribe)',
+                materials: 'Telas ligeras contemporáneas (poliéster o mezclas sintéticas), colores vibrantes industrializados.',
+                technique: 'Elaborados procesos de fruncido para generar los volúmenes característicos y volantes múltiples. Costura a máquina.',
+                context: 'Evolución de una vestimenta de trabajo a un símbolo de resistencia cultural e identidad. La paleta cromática responde a una herencia estética africana y adaptación al clima tropical húmedo.'
+            }
+        };
+
+        function openModal(idTraje) {
+            const modal = document.getElementById('modelModal');
+            const data = trajesData[idTraje];
+
+            // Llenar el modal con los datos correctos
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-materials').innerText = data.materials;
+            document.getElementById('modal-technique').innerText = data.technique;
+            document.getElementById('modal-context').innerText = data.context;
+
+            // Mostrar el modal
+            modal.classList.add('active');
+            // Evitar que el fondo siga scrolleando
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modelModal');
+            modal.classList.remove('active');
+            // Restaurar scroll de la página
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar al hacer click fuera del contenido
+        document.getElementById('modelModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
