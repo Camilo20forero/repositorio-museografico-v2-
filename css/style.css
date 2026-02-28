@@ -2,23 +2,31 @@
    VARIABLES GLOBALES (El "Sistema de Diseño")
    ========================================================================= */
 :root {
-    /* Paleta de colores Dark Tokyo */
-    --bg-dark: #07070a;
-    /* Fondo casi negro */
+    /* Paleta de colores Dashboard Premium */
+    --bg-dark: #0b0f13;
+    /* Fondo base azulado oscuro */
+    --surface: #141b22;
+    /* Superficie de tarjetas y paneles */
+    --surface-hover: #1c252d;
+    /* Superficie al hacer hover */
+
     --text-primary: #ffffff;
-    /* Texto principal blanco */
-    --text-secondary: #94a3b8;
-    /* Texto gris claro para párrafos */
+    --text-secondary: #8a94a6;
+    /* Gris azulado para párrafos */
+    --text-muted: #5a6676;
 
     /* Colores Neón / Acentos */
-    --accent-cyan: #00f0ff;
-    /* Azul neón para Museo del Mar */
-    --accent-magenta: #ff003c;
-    /* Magenta neón para Museo de Trajes */
+    --accent-cyan: #21c8d5;
+    /* Cyan brillante de la referencia */
+    --accent-magenta: #e91e63;
+    /* Magenta para Trajes */
+    --accent-indigo: #6366f1;
+    /* Indigo para detalles */
 
-    /* Efecto "Glassmorphism" (Cristal esmerilado) */
-    --glass-bg: rgba(30, 30, 40, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.05);
+    /* Efectos de Panel */
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --panel-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --glass-bg: rgba(20, 27, 34, 0.7);
 }
 
 /* =========================================================================
@@ -94,76 +102,79 @@ h3,
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 900;
-    color: var(--text-primary);
-    margin-bottom: 30px;
+    color: var(--accent-cyan);
+    margin-bottom: 25px;
     display: inline-block;
-    padding: 12px 24px;
-    /* Efecto de cristal para el logo */
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 12px;
-    letter-spacing: 2px;
+    padding: 8px 16px;
+    background: rgba(33, 200, 213, 0.1);
+    border: 1px solid rgba(33, 200, 213, 0.2);
+    border-radius: 8px;
+    letter-spacing: 1px;
 }
 
 /* Jerarquía de tamaños: Título enorme y responsivo */
 .title {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: -2px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 /* Resaltado con gradiente de color */
 .highlight {
-    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
-    -webkit-background-clip: text;
-    /* Safari/Chrome */
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
+    color: var(--accent-cyan);
 }
 
 .slogan {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* =========================================================================
    SECCIÓN: INTRODUCCIÓN
    ========================================================================= */
 .intro {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    /* Efecto vidrio empañado */
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 32px;
-    padding: 60px;
-    margin: 40px 0 80px;
-    text-align: center;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    background: var(--surface);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 40px 0 60px;
+    text-align: left;
+    /* Alineado a la izquierda como un dashboard profesional */
+    box-shadow: var(--panel-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.intro::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(33, 200, 213, 0.05));
+    pointer-events: none;
 }
 
 .intro h2 {
-    font-size: 2.2rem;
-    margin-bottom: 25px;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .intro p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 800px;
+    line-height: 1.7;
 }
 
 /* =========================================================================
@@ -182,25 +193,23 @@ h3,
     position: relative;
     text-decoration: none;
     color: var(--text-primary);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 32px;
-    padding: 50px;
+    background: var(--surface);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 40px;
     overflow: hidden;
-    /* Transición súper suave (curvada) para animar todo */
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    min-height: 480px;
-    z-index: 1;
-    /* Para que el texto quede arriba del resplandor de fondo */
+    min-height: 420px;
 }
 
 /* Interacción: Efecto flotar (Hover) y sombra */
 .card:hover {
-    transform: translateY(-15px);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+    transform: translateY(-8px);
+    background: var(--surface-hover);
+    border-color: rgba(33, 200, 213, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 /* Fondo oculto de las tarjetas que se iluminará */
@@ -209,56 +218,49 @@ h3,
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    height: 4px;
+    /* Línea de color superior estilo dashboard */
+    z-index: 2;
+    opacity: 0.3;
+    transition: opacity 0.4s ease;
 }
 
-/* Al poner el mouse, iluminar una con rosa y otra con azul */
-.trajes-card:hover .card-bg {
-    background: radial-gradient(circle at top right, rgba(255, 0, 60, 0.2), transparent 70%);
+.trajes-card .card-bg {
+    background: var(--accent-magenta);
+}
+
+.mar-card .card-bg {
+    background: var(--accent-cyan);
+}
+
+.card:hover .card-bg {
     opacity: 1;
-}
-
-.mar-card:hover .card-bg {
-    background: radial-gradient(circle at top right, rgba(0, 240, 255, 0.2), transparent 70%);
-    opacity: 1;
-}
-
-/* Animación de colores en el título */
-.trajes-card:hover h3 {
-    color: var(--accent-magenta);
-}
-
-.mar-card:hover h3 {
-    color: var(--accent-cyan);
 }
 
 /* Etiqueta pequeñita arriba de la tarjeta */
 .card-tag {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--text-secondary);
-    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
     font-weight: 700;
 }
 
 .card h3 {
-    font-size: 3rem;
-    margin-bottom: 25px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
     font-weight: 800;
     transition: color 0.4s ease;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .card p {
     color: var(--text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
+    font-size: 1rem;
+    margin-bottom: 30px;
     flex-grow: 1;
-    /* Obliga al botón a irse hacia el fondo */
+    line-height: 1.6;
 }
 
 /* Botón "Explorar" de la tarjeta */
@@ -383,17 +385,13 @@ h3,
 
 /* Contrador de la información (las tarjetas de abajo) */
 .timeline-content {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 30px 20px;
+    background: var(--surface);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 25px 20px;
     width: 100%;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Efecto rebote suave */
-    opacity: 0.7;
-    /* Por defecto están un poco tenues para que destaque el "hover" */
+    transition: all 0.3s ease;
+    opacity: 0.8;
 }
 
 /* ==========================================
